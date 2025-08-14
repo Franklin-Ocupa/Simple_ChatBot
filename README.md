@@ -23,7 +23,7 @@ A minimalist, responsive React chatbot UI with dark/light mode, smooth animation
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/SRCarlo/react-SmartBot.git
+git clone https://github.com/SRCarlo/Simple_ChatBot.git
 cd SmartBot
 ```
 

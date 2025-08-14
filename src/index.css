@@ -1,16 +1,46 @@
 @import "tailwindcss";
 
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 @import url("https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap");
 
+body {
+  @apply font-mono;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 ::-webkit-scrollbar {
   display: none;
 }
 
-* {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* Floating circles */
+.floating-circles {
+  @apply absolute inset-0 overflow-hidden pointer-events-none;
+  z-index: 0;
+}
+.circle {
+  @apply bg-white bg-opacity-90 rounded-full mix-blend-overlay absolute;
+  animation: floatUp linear infinite;
+}
+.circle:nth-child(1) {
+  width: 40px; height: 40px; left: 10%;
+  animation-duration: 12s; animation-delay: 0s;
+}
+.circle:nth-child(2) {
+  width: 60px; height: 60px; left: 25%;
+  animation-duration: 15s; animation-delay: 2s;
+}
+.circle:nth-child(3) {
+  width: 30px; height: 30px; left: 40%;
+  animation-duration: 10s; animation-delay: 1s;
+}
+.circle:nth-child(4) {
+  width: 50px; height: 50px; left: 60%;
+  animation-duration: 18s; animation-delay: 3s;
+}
+.circle:nth-child(5) {
+  width: 35px; height: 35px; left: 80%;
+  animation-duration: 20s; animation-delay: 1.5s;
 }
 
-body {
-  font-family: "Syne Mono", monospace;
-}
