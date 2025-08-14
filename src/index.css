@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+@import url("https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap");
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body {
+  font-family: "Syne Mono", monospace;
+}
