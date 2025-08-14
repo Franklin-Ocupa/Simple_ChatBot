@@ -1,46 +1,156 @@
 @import "tailwindcss";
 
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
 @import url("https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap");
 
-body {
-  @apply font-mono;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
 ::-webkit-scrollbar {
   display: none;
 }
 
-/* Floating circles */
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body {
+  font-family: "Syne Mono", monospace;
+}
+
+/* -----------------------------
+   Animation - Pop In Effect
+----------------------------- */
+@keyframes popIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-popIn {
+  animation: popIn 0.4s ease-out;
+}
+
+/* -----------------------------
+   Background - Moving Gradient
+----------------------------- */
+.motion-bg {
+  background: linear-gradient(-45deg, #b8ad145b, #bdb7c7, #a1c4fd, #463448);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* -----------------------------
+   Floating Circles (Animated)
+----------------------------- */
 .floating-circles {
-  @apply absolute inset-0 overflow-hidden pointer-events-none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
   z-index: 0;
 }
+
 .circle {
-  @apply bg-white bg-opacity-90 rounded-full mix-blend-overlay absolute;
+  position: absolute;
+  background: rgba(255, 255, 255, 0.907);
+  border-radius: 50%;
   animation: floatUp linear infinite;
+  mix-blend-mode: overlay;
 }
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-10vh) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Generate Multiple Floating Circles Dynamically */
 .circle:nth-child(1) {
-  width: 40px; height: 40px; left: 10%;
-  animation-duration: 12s; animation-delay: 0s;
+  width: 40px;
+  height: 40px;
+  left: 10%;
+  animation-duration: 12s;
+  animation-delay: 0s;
 }
+
 .circle:nth-child(2) {
-  width: 60px; height: 60px; left: 25%;
-  animation-duration: 15s; animation-delay: 2s;
+  width: 60px;
+  height: 60px;
+  left: 25%;
+  animation-duration: 15s;
+  animation-delay: 2s;
 }
+
 .circle:nth-child(3) {
-  width: 30px; height: 30px; left: 40%;
-  animation-duration: 10s; animation-delay: 1s;
+  width: 30px;
+  height: 30px;
+  left: 40%;
+  animation-duration: 10s;
+  animation-delay: 1s;
 }
+
 .circle:nth-child(4) {
-  width: 50px; height: 50px; left: 60%;
-  animation-duration: 18s; animation-delay: 3s;
+  width: 50px;
+  height: 50px;
+  left: 60%;
+  animation-duration: 18s;
+  animation-delay: 3s;
 }
+
 .circle:nth-child(5) {
-  width: 35px; height: 35px; left: 80%;
-  animation-duration: 20s; animation-delay: 1.5s;
+  width: 35px;
+  height: 35px;
+  left: 80%;
+  animation-duration: 20s;
+  animation-delay: 1.5s;
 }
+
+/* -----------------------------
+   Utility - Shadows & Transitions
+----------------------------- */
+.shadow-lg {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.transition {
+  transition: all 0.3s ease-in-out;
+}
+
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
 
